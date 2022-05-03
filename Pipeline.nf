@@ -21,14 +21,14 @@ nextflow.enable.dsl = 2
 // fasta)
 
 params.outdir = "LEK_results"
-params.indir = "/home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK/rawdata"
-params.gendb = false
+params.indir = "/home/cq/RawDataNGS"
+params.gendb = null
 
 log.info """\
  SAHMORIE CAMERON - ANTIBIOTIC RESISTANCE PIPELINE
  ===================================
- outdir       : ${params.outdir}
- indir        : ${params.indir}
+ outdir         : ${params.outdir}
+ indir          : ${params.indir}
  Gene Database  : ${params.gendb}
 
  est. 2022
@@ -40,12 +40,12 @@ log.info """\
    input:
    path infastq
    output:
-   path "${infastq.getSimpleName()}", emit: fastq_out
-   path "${infastq.getSimpleName()}.html"
-   path "${infastq.getSimpleName()}.json", emit: fastpreport
+   path "${infastq.getSimpleName()}*fastp.fastq", emit: fastq_out
+   path "${infastq.getSimpleName()}*fastp.html"
+   path "${infastq.getSimpleName()}*fastp.json", emit: fastpreport
    script:
      """
-     fastp -i ${infastq} -o ${infastq.getSimpleName()}.fastq -h ${infastq.getSimpleName()}.html -j ${infastq.getSimpleName()}.json
+     fastp -i ${infastq} -o ${infastq.getSimpleName()}_fastp.fastq -h ${infastq.getSimpleName()}_fastp.html -j ${infastq}_fastp.json
      """
  }
 
@@ -66,26 +66,24 @@ log.info """\
    publishDir "${params.outdir}/srst", mode: "copy", overwrite: true
    container "https://depot.galaxyproject.org/singularity/srst2%3A0.2.0--py27_2"
    input:
-     path fastq
+     path insrst2
     output:
      path "*"
    script:
      """
-      srst2 --input_se INPUT --output . --log --gene_db ${params.gendb}
+      srst2 --input_se ${insrst2} --output patients --log --gene_db ${params.gendb}
      """
  }
 
  workflow {
-   fastqs = channel.fromPath("/home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/rawdata/*.fasta").collect()
+   fastqs = channel.fromPath("/home/cq/RawDataNGS/*.fastq").collect().flatten()
    fastqs.view()
    fastpout = fastp(fastqs)
-   qcied = fastqc(all_fastqs.flatten(), params.patient1)
-   srst2_input_channel = fastpout.fastpreport.concat(qcied.zipped)
+   qcied = fastqc(fastpout.fastq_out.flatten())
+   qcied.view()
+   srst2_input_channel = (fastpout.fastq_out.flatten())
+   // srst2_input_channel.view()
    srstresults = srst2(srst2_input_channel.collect())
   }
 
-
-
-//nextflow /home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK.nf --patient1 /home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK/rawdata/patient1.fastq --outdir LEK_Results -profile singularity
-
-//nextflow /home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK.nf --patient1 /home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK/rawdata/patient1.fastq --outdir LEK_Results --reference /home/cq/CQ-Bildung-ABI2022-1/Next_Generation_Sequencing/LEK/rawdata/card.fasta  -profile singularity
+//nextflow /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/Pipeline.nf --outdir LEK_Results --gendb /home/cq/RawDataNGS/card.fasta -profile singularity

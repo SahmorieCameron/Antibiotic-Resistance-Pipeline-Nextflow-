@@ -1,0 +1,4 @@
+Sample	ANT3''_AGly	APH3''_AGly	APH6_AGly	AmpC1_Bla	Cat_Phe	Dfr_Tmt	MphB_MLS	OXA_Bla	SAT_AGly	StrA_AGly	StrB_AGly	Sul_Sul	TEM_Bla	TetA_Tet	TetB_Tet
+patient1_fastp	-	aph3''-Ib_146*	aph6-Id.v1_171*	AmpC1_286*	-	dfrA8_2391	mphB.v2_2176*	-	-	strA.v1_2409*	strB.v1_2410*	sul2_2284	TEM-70_1665*?	-	-
+patient3_fastp	aadA_93*	-	-	AmpC1_286*	catA1_2229*	-	mphB.v2_2176*	OXA-1_999?	-	-	-	-	-	-	tetB.v2_2325*?
+patient2_fastp	aadA_93*	aph3''-Ib_146*	aph6-Id.v1_171*	AmpC1_286*	-	dfrA1.v1_2357?	mphB.v2_2176*	-	sat-2_193	strA.v1_2409*	strB.v1_2410	sul2_2284	-	tetA.v1_2317	-

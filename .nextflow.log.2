@@ -1,0 +1,86 @@
+May-03 19:37:17.318 [main] DEBUG nextflow.cli.Launcher - $> nextflow /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/Pipeline.nf --outdir LEK_Results --gendb /home/cq/RawDataNGS/card.fasta -profile singularity
+May-03 19:37:17.505 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 22.03.1-edge
+May-03 19:37:17.539 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/nextflow.config
+May-03 19:37:17.541 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/nextflow.config
+May-03 19:37:17.622 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+May-03 19:37:18.525 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [singularity]
+May-03 19:37:18.601 [main] INFO  nextflow.cli.CmdRun - Launching `/home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/Pipeline.nf` [disturbed_yonath] DSL2 - revision: cbb9028680
+May-03 19:37:18.623 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/home/cq/.nextflow/plugins; core-plugins: nf-amazon@1.6.0,nf-azure@0.13.0,nf-console@1.0.3,nf-ga4gh@1.0.3,nf-google@1.1.4,nf-sqldb@0.3.0,nf-tower@1.4.0
+May-03 19:37:18.624 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+May-03 19:37:18.649 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+May-03 19:37:18.650 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+May-03 19:37:18.654 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+May-03 19:37:18.671 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+May-03 19:37:18.773 [main] DEBUG nextflow.Session - Session uuid: 9232eca1-599f-4ffd-a3a7-92f72c062309
+May-03 19:37:18.774 [main] DEBUG nextflow.Session - Run name: disturbed_yonath
+May-03 19:37:18.774 [main] DEBUG nextflow.Session - Executor pool size: 4
+May-03 19:37:18.837 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 22.03.1-edge build 5695
+  Created: 06-04-2022 20:51 UTC (22:51 CEST)
+  System: Linux 5.13.0-40-generic
+  Runtime: Groovy 3.0.10 on OpenJDK 64-Bit Server VM 11.0.15+10-Ubuntu-0ubuntu0.20.04.1
+  Encoding: UTF-8 (UTF-8)
+  Process: 38217@bioinfobox [127.0.1.1]
+  CPUs: 4 - Mem: 3.8 GB (116.7 MB) - Swap: 923.3 MB (195.4 MB)
+May-03 19:37:18.875 [main] DEBUG nextflow.Session - Work-dir: /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/work [ext2/ext3]
+May-03 19:37:18.875 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/cq/Antibiotic-Resistance-Pipeline-Nextflow-/bin
+May-03 19:37:18.886 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+May-03 19:37:18.904 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+May-03 19:37:18.935 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+May-03 19:37:18.954 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+May-03 19:37:19.057 [main] DEBUG nextflow.Session - Session start invoked
+May-03 19:37:19.712 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+May-03 19:37:19.730 [main] INFO  nextflow.Nextflow -  SAHMORIE CAMERON - ANTIBIOTIC RESISTANCE PIPELINE
+ ===================================
+ outdir         : LEK_Results
+ indir          : /home/cq/RawDataNGS
+ Gene Database  : /home/cq/RawDataNGS/card.fasta
+
+ est. 2022
+ 
+May-03 19:37:19.955 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-03 19:37:19.955 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-03 19:37:19.961 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+May-03 19:37:19.968 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=3.8 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+May-03 19:37:20.096 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-03 19:37:20.097 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-03 19:37:20.111 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-03 19:37:20.112 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-03 19:37:20.117 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: fastqc, srst2, fastp
+May-03 19:37:20.119 [main] DEBUG nextflow.Session - Ignite dataflow network (4)
+May-03 19:37:20.129 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastp
+May-03 19:37:20.135 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > fastqc
+May-03 19:37:20.137 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > srst2
+May-03 19:37:20.138 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+May-03 19:37:20.143 [main] DEBUG nextflow.Session - Session await
+May-03 19:37:20.150 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/cq/RawDataNGS/; pattern: *.fastq; options: [:]
+May-03 19:37:20.299 [Actor Thread 4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'srst2'
+
+Caused by:
+  Not a valid path value type: nextflow.extension.OpCall (nextflow.extension.OpCall@66e341e9)
+
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+May-03 19:37:20.328 [Actor Thread 6] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/fastp:0.20.1--h8b12597_0; path=/home/cq/singularity_containers/depot.galaxyproject.org-singularity-fastp-0.20.1--h8b12597_0.img
+May-03 19:37:20.338 [Actor Thread 4] DEBUG nextflow.Session - Session aborted -- Cause: Not a valid path value type: nextflow.extension.OpCall (nextflow.extension.OpCall@66e341e9)
+May-03 19:37:20.392 [Actor Thread 4] DEBUG nextflow.Session - The following nodes are still active:
+[process] fastp
+  status=ACTIVE
+  port 0: (queue) closed; channel: infastq
+  port 1: (cntrl) -     ; channel: $
+
+[process] fastqc
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: fastq
+  port 1: (cntrl) -     ; channel: $
+
+[process] srst2
+  status=ACTIVE
+  port 0: (value) bound ; channel: insrst2
+  port 1: (cntrl) -     ; channel: $
+
+May-03 19:37:20.399 [main] DEBUG nextflow.Session - Session await > all process finished
+May-03 19:37:20.399 [main] DEBUG nextflow.Session - Session await > all barriers passed
+May-03 19:37:20.413 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+May-03 19:37:20.556 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+May-03 19:37:20.577 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
